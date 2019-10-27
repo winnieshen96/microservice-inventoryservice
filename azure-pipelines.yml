@@ -25,4 +25,4 @@ stages:
         repository: 'demo'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
-        tags: 'v1'
+        tags: 'inventory-service:v1'

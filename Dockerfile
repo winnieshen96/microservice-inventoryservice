@@ -3,7 +3,7 @@ COPY src /usr/app/src
 COPY pom.xml /usr/app
 WORKDIR /usr/app
 VOLUME /usr/app
-RUN mvn package
+RUN mvn clean package > running.log
 
 FROM gcr.io/distroless/java
 ENV VERSION 0.0.1

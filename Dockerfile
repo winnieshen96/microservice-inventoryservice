@@ -1,9 +1,9 @@
-FROM maven:3.5-jdk-8 AS build 
+FROM maven:3.6.2-jdk-8 AS build 
 COPY src /usr/app/src  
 COPY pom.xml /usr/app
 WORKDIR /usr/app
 VOLUME /usr/app
-RUN mvn clean package > running.log
+RUN mvn clean package
 
 FROM gcr.io/distroless/java
 ENV VERSION 0.0.1

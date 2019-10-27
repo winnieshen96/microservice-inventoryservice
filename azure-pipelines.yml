@@ -1,6 +1,4 @@
 # Docker
-# Build a Docker image 
-# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 trigger:
 - master
@@ -23,7 +21,8 @@ stages:
     - task: Docker@2
       displayName: Build an image
       inputs:
-        command: build
-        dockerfile: '**/Dockerfile'
-        tags: |
-          $(tag)
+        containerRegistry: 'ACRConnection'
+        repository: 'demo'
+        command: 'buildAndPush'
+        Dockerfile: '**/Dockerfile'
+        tags: '${ACR_NAME}.azurecr.io/demo/inventory-service:v1'

@@ -6,7 +6,3 @@ spring:
     # will register to consul using the following name
     # other services will lookup this service with this name
     name: inventory-service
-  cloud:
-    consul:
-      # this consul client is located in 6500
-      port: 6500

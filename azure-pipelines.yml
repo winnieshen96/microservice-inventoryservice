@@ -22,7 +22,7 @@ stages:
       displayName: Build an image
       inputs:
         containerRegistry: 'ACRConnection'
-        repository: 'demo'
+        repository: 'demo/inventory-service'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
-        tags: 'inventory-service:v1'
+        tags: 'v1'

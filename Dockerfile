@@ -7,8 +7,8 @@ RUN mvn clean package
 
 FROM gcr.io/distroless/java
 ENV VERSION 0.0.1
+COPY --from=build /usr/app/target/inventory-service-$VERSION.jar /usr/app/inventory-service-$VERSION.jar
 VOLUME /usr/app
-COPY --from=build /usr/app/target/inventory-service-$VERSION.jar /usr/app/inventory-service-$VERSION.jar  
 EXPOSE 6500  
 ENTRYPOINT ["java","-jar","/usr/app/inventory-service-$VERSION.jar"]
 

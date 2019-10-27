@@ -25,4 +25,4 @@ stages:
         repository: 'demo'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
-        tags: '${ACR_NAME}.azurecr.io/demo/inventory-service:v1 .'
+        tags: 'v1'

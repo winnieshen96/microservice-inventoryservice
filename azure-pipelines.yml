@@ -26,3 +26,8 @@ stages:
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         tags: 'v1'
+    - task: PublishPipelineArtifact@1
+      inputs:
+        targetPath: '$(Pipeline.Workspace)'
+        artifact: 'manifests'
+        publishLocation: 'pipeline'

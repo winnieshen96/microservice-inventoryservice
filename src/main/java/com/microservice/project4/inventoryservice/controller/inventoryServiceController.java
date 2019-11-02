@@ -42,6 +42,13 @@ public class inventoryServiceController {
         inventoryDB.put("clothesshop", lst);
  
     }
+    
+    //The annotation of RequestMapping can map HTTP request 
+    //"http://host:port/" to this method
+    @RequestMapping("/")
+    public String home() {
+        return "Welcome to inventory service";
+    }
  
     //The annotation of RequestMapping can map HTTP request such as 
     //"http://host:port/getInventoryForShop/fruitShop" to this method

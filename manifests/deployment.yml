@@ -1,0 +1,26 @@
+apiVersion : extensions/v1beta1
+kind: Deployment
+variables:
+  ACR_NAME:dba3f8f5d0df4cb492652988af71367c
+metadata:
+  name: inventoryService 
+spec:
+  selector:
+    matchLabels:
+      app: microservice-demo
+      name: inventoryService
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        # these labels are used to identify itself
+        # eg. Service will find containers using these labels
+        app: microservice-demo
+        name: inventoryService 
+    spec:
+      containers:
+        - name: inventoryService
+          image: ${ACR_NAME}.azurecr.io/demo/inventory-service:v1
+          ports:
+          - name: http
+            containerPort: 6500

@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: inventory-service
+  name: inventory-service
+  namespace: microservice
+spec:
+  # Make the service externally visible via the node
+  type: NodePort 
+  ports:
+  - port: 6500
+    targetPort: 80
+    nodePort: 36500
+    protocol: TCP 
+  selector:
+    # tells Kubernetes to take the containers that have the label name: inventoryService
+    name: inventoryService
+  imagePullSecrets:
+    - name: regcred

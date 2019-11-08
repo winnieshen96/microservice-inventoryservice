@@ -8,7 +8,7 @@ metadata:
 spec:
   selector:
     app: microservice-demo
-    name: inventoryService
+    name: inventory-service
   ports:
   - protocol: TCP
     port: 6500

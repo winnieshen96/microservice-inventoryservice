@@ -1,7 +1,6 @@
 apiVersion : extensions/v1beta1
 kind: Deployment
-variables:
-  ACR_NAME:dba3f8f5d0df4cb492652988af71367c
+# cannot use variables, validation failure
 metadata:
   name: inventoryService 
 spec:
@@ -20,7 +19,7 @@ spec:
     spec:
       containers:
         - name: inventoryService
-          image: ${ACR_NAME}.azurecr.io/demo/inventory-service:v1
+          image: dba3f8f5d0df4cb492652988af71367c.azurecr.io/demo/inventory-service:v1
           ports:
           - name: http
             containerPort: 6500

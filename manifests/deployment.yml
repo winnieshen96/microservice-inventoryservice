@@ -2,7 +2,7 @@ apiVersion : extensions/v1beta1
 kind: Deployment
 # cannot use variables, validation failure
 metadata:
-  name: inventoryService 
+  name: inventory-service
 spec:
   selector:
     matchLabels:

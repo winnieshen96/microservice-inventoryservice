@@ -42,6 +42,14 @@ stages:
       runOnce:
         deploy:
           steps:
+          - task: Kubernetes@1
+            inputs:
+              connectionType: 'Kubernetes Service Connection'
+              kubernetesServiceEndpoint: 'kubernetesConnection'
+              command: 'apply'
+              useConfigurationFile: true
+              configurationType: 'inline'
+              inline: '{ "kind": "Namespace", "apiVersion": "v1", "metadata": { "name": "dev" }}'
           - task: KubernetesManifest@0
             displayName: Create imagePullSecret
             inputs:

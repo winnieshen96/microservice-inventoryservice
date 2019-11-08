@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: microservice-demo
-      name: inventoryService
+      name: inventory-service
   replicas: 1
   template:
     metadata:
@@ -15,10 +15,10 @@ spec:
         # these labels are used to identify itself
         # eg. Service will find containers using these labels
         app: microservice-demo
-        name: inventoryService 
+        name: inventory-service 
     spec:
       containers:
-        - name: inventoryService
+        - name: inventory-service
           image: dba3f8f5d0df4cb492652988af71367c.azurecr.io/demo/inventory-service:v1
           ports:
           - name: http

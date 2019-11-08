@@ -7,7 +7,10 @@ resources:
 - repo: self
 
 variables:
-  tag: '$(Build.BuildId)'
+  tag: 'v1'
+  containerRegistry: 'dba3f8f5d0df4cb492652988af71367c.azurecr.io'
+  imageRepository: 'demo/inventory-service'
+  imagePullSecret: '{{#toAlphaNumericString containerRegistryConnection.Name 50}}{{/toAlphaNumericString}}{{#shortGuid}}{{/shortGuid}}-auth'
 
 stages:
 - stage: Build

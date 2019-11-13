@@ -53,7 +53,7 @@ stages:
               kubernetesServiceConnection: 'dev-myAKSCluster-dev-1573614110824'
               secretType: 'dockerRegistry'
               secretName: $(imagePullSecret)
-              dockerRegistryEndpoint: 'ACRconnection'
+              dockerRegistryEndpoint: 'ACRConnection'
           - task: KubernetesManifest@0
             displayName: Deploy to Kubernetes cluster
             inputs:

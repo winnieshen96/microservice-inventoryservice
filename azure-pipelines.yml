@@ -2,6 +2,7 @@
 
 trigger:
 - master
+- plain
 
 resources:
 - repo: self

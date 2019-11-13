@@ -50,7 +50,7 @@ stages:
             displayName: Create imagePullSecret
             inputs:
               action: 'createSecret'
-              kubernetesServiceConnection: 'dev-myAKSCluster-dev-1573231993640'
+              kubernetesServiceConnection: 'dev-myAKSCluster-dev-1573614110824'
               secretType: 'dockerRegistry'
               secretName: $(imagePullSecret)
               dockerRegistryEndpoint: 'ACRconnection'
@@ -58,7 +58,7 @@ stages:
             displayName: Deploy to Kubernetes cluster
             inputs:
               action: 'deploy'
-              kubernetesServiceConnection: 'dev-myAKSCluster-dev-1573231993640'
+              kubernetesServiceConnection: 'dev-myAKSCluster-dev-1573614110824'
               manifests: |
                 $(Pipeline.Workspace)/manifests/deployment.yml
                 $(Pipeline.Workspace)/manifests/service.yml

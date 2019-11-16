@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.microservice.project4.inventoryservice.domain.Good;
 
 @RestController
-public class inventoryServiceController {
+public class InventoryServiceController {
 
     private static Map<String, List<Good>> inventoryDB = new HashMap<String, List<Good>>();
     

@@ -7,7 +7,7 @@ resources:
 - repo: self
 
 variables:
-  tag: 'v1'
+  tag: $(Build.BuildId)
   containerRegistry: 'dba3f8f5d0df4cb492652988af71367c.azurecr.io'
   imageRepository: 'demo/inventory-service'
   imagePullSecret: 'regcred'
@@ -50,15 +50,15 @@ stages:
             displayName: Create imagePullSecret
             inputs:
               action: 'createSecret'
-              kubernetesServiceConnection: 'dev-myAKSCluster-dev-1573231993640'
+              kubernetesServiceConnection: 'dev-myAKSCluster-dev-1573614110824'
               secretType: 'dockerRegistry'
               secretName: $(imagePullSecret)
-              dockerRegistryEndpoint: 'ACRconnection'
+              dockerRegistryEndpoint: 'ACRConnection'
           - task: KubernetesManifest@0
             displayName: Deploy to Kubernetes cluster
             inputs:
               action: 'deploy'
-              kubernetesServiceConnection: 'dev-myAKSCluster-dev-1573231993640'
+              kubernetesServiceConnection: 'dev-myAKSCluster-dev-1573614110824'
               manifests: |
                 $(Pipeline.Workspace)/manifests/deployment.yml
                 $(Pipeline.Workspace)/manifests/service.yml

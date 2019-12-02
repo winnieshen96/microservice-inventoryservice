@@ -1,0 +1,40 @@
+# Docker
+
+trigger:
+- master
+
+resources:
+- repo: self
+
+variables:
+  tag: $(Build.BuildId)
+  containerRegistry: 'dba3f8f5d0df4cb492652988af71367c.azurecr.io'
+  imageRepository: 'demo/inventory-service'
+  imagePullSecret: 'regcred'
+
+stages:
+- stage: Build
+  displayName: Build image
+  jobs:  
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    
+
+- stage: Deploy
+  displayName: Deploy stage
+  dependsOn: Build
+
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy
+    pool:
+      vmImage: 'ubuntu-latest'
+    environment: 'dev.dev'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          

@@ -8,7 +8,7 @@ resources:
 
 variables:
   tag: $(Build.BuildId)
-  containerRegistry: 'dba3f8f5d0df4cb492652988af71367c.azurecr.io'
+  containerRegistry:
   imageRepository: 'demo/inventory-service'
   imagePullSecret: 'regcred'
 
